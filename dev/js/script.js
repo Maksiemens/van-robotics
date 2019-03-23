@@ -8,7 +8,7 @@ $('#fullpage').fullpage({
   sectionSelector: '.mk-section',
   licenseKey: '07B26BE7-338C4324-918569EB-577BA49D',
 
-  // scrollBar: true,
+  scrollBar: true,
 
 
   // scrollOverflowReset: false,
@@ -18,11 +18,106 @@ $('#fullpage').fullpage({
   // scrollOverflow: true,
 
   // verticalCentered: false,
-
+  // scrollBar: true,
+  // responsiveWidth: 770,
+  // responsiveHeight: 640,
 
 });
+// $.fn.fullpage.setMouseWheelScrolling(false);
 // $.fn.fullpage.setAllowScrolling(false);
-console.log('maks');
+// $.fn.fullpage.setAllowScrolling(false);
+
+
+//form.mk-form
+var $mkForm = $('.js-mkForm');
+var $mkFormInput = $('.js-mkFormInput');
+var $mkFormTextarea = $('.js-mkFormTextarea');
+
+$mkForm.on('focusin', function(event) {
+  var $target = $(event.target);
+  if( $target.is($mkFormInput) || $target.is($mkFormTextarea) ) {
+    $target.closest('.mk-form__group').addClass('mk-form__group_active');
+  }
+});
+
+$mkForm.on('focusout', function(event) {
+  var $target = $(event.target);
+  if( ($target.is($mkFormInput) || $target.is($mkFormTextarea)) && !$target.val() ) {
+    $target.closest('.mk-form__group').removeClass('mk-form__group_active');
+  }
+});
+
+
+
+
+
+// $('.mk-form__input').on('blur', function(event) {
+//   console.log($(this));
+
+//   if($(this).val() != '') {
+
+//     return;
+
+//   }
+//   else {
+//     $('.mk-form__group').removeClass('mk-form__group--is-active')
+//   }
+
+
+ 
+// });
+
+
+
+
+
+
+
+// $('.mk-form__input').on('focus', function(event) {
+//   console.log($(this));
+//   $('.mk-form__group').addClass('mk-form__group_active');
+// });
+// $('.mk-form__input').on('blur', function(event) {
+//   console.log($(this));
+
+//   if($(this).val() != '') {
+
+//     return;
+
+//   }
+//   else {
+//     $('.mk-form__group').removeClass('mk-form__group--is-active')
+//   }
+
+
+ 
+// });
+
+
+// const setActive = (el, active) => {
+//   const formField = el.parentNode.parentNode
+//   if (active) {
+//     formField.classList.add('form-field--is-active')
+//   } else {
+//     formField.classList.remove('form-field--is-active')
+//     el.value === '' ? 
+//       formField.classList.remove('form-field--is-filled') : 
+//       formField.classList.add('form-field--is-filled')
+//   }
+// }
+
+// [].forEach.call(
+//   document.querySelectorAll('.form-field__input, .form-field__textarea'),
+//   (el) => {
+//     el.onblur = () => {
+//       setActive(el, false)
+//     }
+//     el.onfocus = () => {
+//       setActive(el, true)
+//     }
+//   }
+// )
+
 
 
 
